@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Jan Novák – Finanční poradenství</title>
+  <meta
+    name="description"
+    content="Pomáhám lidem lépe se orientovat ve financích, pojištění, investicích a bydlení."
+  />
+
+  <style>
+    :root {
+      --primary: #123c69;
+      --primary-dark: #0b2948;
+      --accent: #e6a23c;
+      --light: #f5f7fa;
+      --text: #263238;
+      --muted: #667085;
+      --white: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 8px;
+      padding: 13px 20px;
+      background: var(--accent);
+      color: #1f2933;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: #d28b25;
+      transform: translateY(-1px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      margin-left: 8px;
+    }
+
+    .button-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(18, 60, 105, 0.96), rgba(11, 41, 72, 0.9)),
+        radial-gradient(circle at top right, #4679ad, transparent 45%);
+      color: var(--white);
+      padding: 100px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin-bottom: 22px;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin-bottom: 30px;
+      color: #e8eef5;
+      font-size: 1.12rem;
+    }
+
+    .hero-card {
+      padding: 34px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-card h2 {
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+
+    .hero-card ul {
+      padding-left: 20px;
+      color: #edf3f8;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 2.2rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .services {
+      background: var(--light);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: #fff1d9;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .profile-placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 330px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #dbe8f5, #f3f6f9);
+      color: var(--primary);
+      font-size: 5rem;
+    }
+
+    .about h2 {
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: 2.2rem;
+    }
+
+    .about p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: bold;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .step p {
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--light);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      padding: 40px;
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 8px 25px rgba(16, 24, 40, 0.06);
+    }
+
+    .contact h2 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      color: var(--muted);
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #b8d0e7;
+      border-color: var(--primary);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--primary-dark);
+      color: #dce8f2;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        min-height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 25px;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <!-- TODO: Nahraďte jméno vlastním jménem -->
+      <a class="logo" href="#domu">Jan Novák | Finance</a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#o-mne">O mně</a></li>
+          <li><a href="#jak-pracuji">Jak pracuji</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="domu">
+      <div class="container hero-grid">
+        <div>
+          <h1>Finance srozumitelně a bez zbytečného stresu.</h1>
+          <p>
+            Pomáhám jednotlivcům i rodinám udělat si pořádek ve financích,
+            nastavit správné pojištění a plánovat budoucnost.
+          </p>
+
+          <a class="button" href="#kontakt">Domluvme si konzultaci</a>
+          <a class="button button-outline" href="#sluzby">Zjistit více</a>
+        </div>
+
+        <div class="hero-card">
+          <h2>Na čem si zakládám</h2>
+          <ul>
+            <li>Srozumitelné vysvětlení bez složitého žargonu</li>
+            <li>Individuální přístup ke každému klientovi</li>
+            <li>Dlouhodobé plánování místo rychlých řešení</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="sluzby">
+      <div class="container">
+        <div class="section-heading">
+          <h2>S čím vám mohu pomoci</h2>
+          <p>
+            Společně projdeme vaši situaci a najdeme řešení, které dává smysl.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">✓</div>
+            <h3>Finanční plán</h3>
+            <p>
+              Získáte přehled o příjmech, výdajích, rezervách a dalších
+              důležitých finančních cílech.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⌂</div>
+            <h3>Bydlení a hypotéky</h3>
+            <p>
+              Pomohu vám připravit financování bydlení a lépe se zorientovat
+              v možnostech hypotéky.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">★</div>
+            <h3>Investice a spoření</h3>
+            <p>
+              Probereme možnosti dlouhodobého spoření a investování podle vašich
+              cílů a možností.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">+</div>
+            <h3>Pojištění</h3>
+            <p>
+              Pomohu vám posoudit, jaká rizika má smysl pokrýt a jak nastavit
+              pojištění prakticky.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Rodinné finance</h3>
+            <p>
+              Nastavíme jednoduchý systém, díky kterému budete mít větší kontrolu
+              nad rodinným rozpočtem.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">∞</div>
+            <h3>Dlouhodobá péče</h3>
+            <p>
+              Vaše finanční nastavení můžeme pravidelně kontrolovat a upravovat
+              podle životních změn.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="o-mne">
+      <div class="container about-grid">
+        <div class="profile-placeholder" aria-label="Místo pro fotografii poradce">
+          👤
+        </div>
+
+        <div>
+          <h2>Osobní přístup je pro mě základ</h2>
+          <p>
+            Jmenuji se Jan Novák a jako začínající finanční poradce pomáhám
+            klientům získat větší jistotu a přehled v jejich financích.
+          </p>
+          <p>
+            Věřím, že dobré finanční rozhodnutí nemusí být složité. Důležité je
+            nejprve pochopit vaši situaci, vaše cíle a možnosti.
+          </p>
+          <a class="button" href="#kontakt">Poznat se osobně</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="jak-pracuji">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Jak spolupráce probíhá</h2>
+          <p>Jednoduše, transparentně a bez zbytečného tlaku.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Úvodní rozhovor</h3>
+            <p>
+              Probereme vaši aktuální situaci, potřeby a finanční cíle.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Návrh řešení</h3>
+            <p>
+              Připravím přehledné možnosti a vysvětlím vám jejich výhody i rizika.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Další péče</h3>
+            <p>
+              Domluvíme se na dalších krocích a případné pravidelné kontrole.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-info">
+            <h2>Domluvme si nezávaznou konzultaci</h2>
+            <p>
+              Napište mi nebo zavolejte. Rád si poslechnu, co právě řešíte.
+            </p>
+
+            <!-- TODO: Nahraďte kontaktní údaje -->
+            <p>
+              E-mail:
+              <a href="mailto:jan.novak@example.com">
+                jan.novak@example.com
+              </a>
+            </p>
+
+            <p>
+              Telefon:
+              <a href="tel:+420777123456">+420 777 123 456</a>
+            </p>
+
+            <p>Schůzky osobně i online.</p>
+          </div>
+
+          <!-- Formulář otevře e-mailového klienta bez potřeby serveru -->
+          <form
+            action="mailto:jan.novak@example.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label for="name">
+              Jméno
+              <input id="name" name="Jméno" type="text" required />
+            </label>
+
+            <label for="email">
+              E-mail
+              <input id="email" name="E-mail" type="email" required />
+            </label>
+
+            <label for="message">
+              Zpráva
+              <textarea id="message" name="Zpráva" required></textarea>
+            </label>
+
+            <button class="button" type="submit">Odeslat zprávu</button>
+
+            <p class="form-note">
+              Odesláním zprávy souhlasíte s tím, že vás mohu kontaktovat
+              v souvislosti s vaším dotazem.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Jan Novák – Finanční poradenství
+    </div>
+  </footer>
+</body>
+</html>
