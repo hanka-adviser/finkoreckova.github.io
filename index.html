@@ -601,7 +601,7 @@
     const message = document.getElementById('message').value;
 
     const subject = encodeURIComponent('Nová zpráva od ' + name);
-    const body = encodeURIComponent('E-mail: ' + '\n\n' + message);
+    const body = encodeURIComponent('\n\n' + message);
     const mailtoLink = `mailto:koreckova.hanka@gmail.com?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoLink;
