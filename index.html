@@ -585,11 +585,6 @@
     <input id="name" name="Jméno" type="text" required />
   </label>
 
-  <label for="email">
-    E-mail
-    <input id="email" name="E-mail" type="email" required />
-  </label>
-
   <label for="message">
     Zpráva
     <textarea id="message" name="Zpráva" required></textarea>
@@ -603,11 +598,10 @@
     e.preventDefault();
 
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
     const subject = encodeURIComponent('Nová zpráva od ' + name);
-    const body = encodeURIComponent('E-mail: ' + email + '\n\n' + message);
+    const body = encodeURIComponent('E-mail: ' + '\n\n' + message);
     const mailtoLink = `mailto:koreckova.hanka@gmail.com?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoLink;
