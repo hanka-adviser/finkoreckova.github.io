@@ -117,7 +117,7 @@
     .hero-card { position: absolute; left: -26px; bottom: 54px; z-index: 4; width: 265px; padding: 18px 21px; border-radius: 12px; background: rgba(29,81,69,.94); box-shadow: 0 16px 34px rgba(18,59,50,.2); }
     .hero-card p { margin: 0; color: rgba(255,255,255,.78); font-size: 14px; line-height: 1.55; }
     .hero-card strong { color: white; }
-    .hero-topics { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--forest-800); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+    .hero-topics { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--forest-800); font-size: 11px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
     .hero-topics i { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-400); }
 
     .statement { background: var(--paper); }
@@ -133,7 +133,7 @@
 
     .services { background: var(--sage-50); }
     .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; margin-bottom: 60px; }
-    .section-heading h2, .about-copy h2, .about-intro h2, .entrepreneurs-copy h2, .contact-copy h2, .expertise h2 { margin-bottom: 0; font-family: var(--sans); font-size: clamp(38px, 4.4vw, 60px); font-weight: 720; line-height: 1.05; letter-spacing: -.042em; }
+    .section-heading h2, .about-copy h2, .about-intro h2, .entrepreneurs-copy h2, .contact-copy h2, .expertise h2 { margin-bottom: 0; font-family: var(--sans); font-size: clamp(38px, 4.4vw, 60px); font-weight: 720; line-height: 1.05; letter-spacing: -.04em; }
     .section-heading > p { margin: 0 0 6px; color: var(--muted); font-size: 17px; }
     .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .service-card { min-height: 410px; padding: 38px 38px 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 12px 30px rgba(18,59,50,.05); }
@@ -154,7 +154,7 @@
     .one-plan-photo::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(29,81,69,.12); border-radius: inherit; }
     .one-plan-copy h2 { margin-bottom: 34px; font-family: var(--sans); font-size: clamp(43px, 5vw, 68px); font-weight: 720; line-height: 1.02; letter-spacing: -.045em; }
     .one-plan-copy > p:not(.eyebrow) { max-width: 620px; color: var(--muted); font-size: 18px; }
-    .one-plan-copy blockquote { margin: 42px 0 0; padding: 22px 0 22px 28px; border-left: 3px solid var(--gold-400); color: var(--forest-800); font-family: var(--sans); font-size: clamp(23px, 2.5vw, 33px); font-weight: 650; line-height: 1.35; }
+    .one-plan-copy blockquote { margin: 42px 0 0; padding: 22px 0 22px 28px; border-left: 3px solid var(--gold-400); color: var(--forest-800); font-family: var(--sans); font-size: clamp(23px, 2.5vw, 32px); font-weight: 650; line-height: 1.35; }
 
     .process { background: var(--paper); }
     .process-heading { align-items: center; }
@@ -226,7 +226,7 @@
     .contact-form label { display: block; margin-bottom: 18px; }
     .contact-form label > span { display: block; margin-bottom: 6px; color: var(--forest-800); font-size: 12px; font-weight: 750; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid rgba(13,58,49,.18); border-radius: 8px; outline: 0; background: var(--sage-50); padding: 12px 13px; color: var(--ink); transition: border .2s, box-shadow .2s; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid rgba(13,58,49,.18); border-radius: 8px; outline: 0; background: var(--sage-50); padding: 12px 13px; color: var(--ink); transition: border .2s ease, box-shadow .2s ease; }
     .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--forest-700); box-shadow: 0 0 0 3px rgba(63,123,108,.13); }
     .contact-form textarea { resize: vertical; }
     .form-submit { width: 100%; border: 0; }
@@ -272,8 +272,29 @@
       .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
       .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
       .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-      .main-nav { position: fixed; inset: 82px 0 0; padding: 42px 30px; background: var(--paper); color: var(--forest-950); display: flex; flex-direction: column; align-items: stretch; gap: 5px; transform: translateX(100%); opacity: 0; pointer-events: none; transition: transform .25s, opacity .25s; }
-      .main-nav.is-open { transform: none; opacity: 1; pointer-events: auto; }
+      .main-nav {
+        position: fixed;
+        inset: 82px 0 0;
+        z-index: 101;
+        min-height: calc(100dvh - 82px);
+        overflow-y: auto;
+        padding: 42px 30px;
+        background: var(--paper);
+        color: var(--forest-950);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .25s ease, opacity .25s ease;
+      }
+      .main-nav.is-open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
       .main-nav > a:not(.button) { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: 24px; font-weight: 650; }
       .main-nav .button { margin-top: 24px; }
       .hero { padding-top: 126px; }
@@ -393,7 +414,7 @@
         <div class="statement-copy reveal">
           <h2>Nejde o to mít více<br>finančních produktů.</h2>
           <p class="statement-accent">Jde o to vědět, proč je máte.</p>
-          <p>Možná už nějaké pojištění, investice nebo spoření máte. Možná teprve začínáte. V obou případech by mělo být jasné, jakou roli jednotlivé části vašich financí plní.</p>
+          <p>Možná už nějaké pojištění, investice nebo spoření máte. Možná teprve začínáte. V obou případech by mělo být jasné, jakou roli jednotlivé části vašich financí plní ve vašem životě.</p>
         </div>
         <div class="roles" aria-label="Čtyři role finančního plánu">
           <article><span>01</span><strong>Co vás chrání.</strong></article>
@@ -437,7 +458,7 @@
             <div class="service-number">03</div>
             <p class="service-kicker">Investice</p>
             <h3>Nejdříve cíl.<br>Potom investice.</h3>
-            <p>Strategie vychází z vašeho cíle, času, zkušeností a rizika, které jste schopni přijmout. Může zahrnovat pravidelné i jednorázové investice do podílových fondů a u klientů splňujících zákonné podmínky také fondy kvalifikovaných investorů.</p>
+            <p>Strategie vychází z vašeho cíle, času, zkušeností a rizika, které jste schopni přijmout. Může zahrnovat pravidelné i jednorázové investice do podílových fondů a u klientů i další investiční nástroje.</p>
             <p class="service-list">pravidelné investice · jednorázové investice · podílové fondy · fondy kvalifikovaných investorů</p>
             <a href="#kontakt">Chci řešit investice <span aria-hidden="true">↗</span></a>
           </article>
@@ -510,7 +531,7 @@
         <div class="entrepreneurs-copy reveal">
           <p class="eyebrow eyebrow-dark">Pro drobné podnikatele a OSVČ</p>
           <h2>Osobní a podnikatelské finance se často potkávají.</h2>
-          <p>Podnikání vyžaduje komplexní pohled na provoz, majetek, odpovědnost, financování dalšího rozvoje i přípravu na budoucnost. U OSVČ je navíc důležité vnímat podnikatelské a osobní finance jako jeden propojený celek.</p>
+          <p>Podnikání vyžaduje komplexní pohled na provoz, majetek, odpovědnost, financování dalšího rozvoje i přípravu na budoucnost. U OSVČ je navíc důležité vnímat podnikatelské finance jako součást osobních financí, aby byly důsledn�� i v době mezi příjmy.</p>
           <a class="button button-dark" href="#kontakt">Probrat moje podnikání</a>
         </div>
         <div class="entrepreneurs-points reveal" aria-label="Oblasti financí podnikatelů">
@@ -538,7 +559,7 @@
           <div class="edo-support">
             <p class="edo-label">Odborné zázemí</p>
             <h3>Spolupracuji se společností eDO finance</h3>
-            <p>Působím jako vázaná zástupkyně společnosti <strong>eDO finance, a.s.</strong> Díky tomuto zázemí mám přístup k průběžnému vzdělávání, metodické a odborné podpoře, moderním pracovním nástrojům a řešením spolupracujících finančních institucí.</p>
+            <p>Působím jako vázaná zástupkyně společnosti <strong>eDO finance, a.s.</strong> Díky tomuto zázemí mám přístup k průběžnému vzdělávání, metodické a odborné podpoře a k bezpečnému a transparentnímu rámci práce s klienty.</p>
             <p>S eDO sdílím důraz na odbornost, férovost, transparentnost, srozumitelnou komunikaci a dlouhodobou péči o klienty.</p>
             <a href="https://www.edogroup.cz/cz/kdo-jsme" target="_blank" rel="noopener noreferrer">Více o eDO finance <span aria-hidden="true">↗</span></a>
           </div>
@@ -628,7 +649,7 @@
   <footer class="site-footer">
     <div class="shell footer-legal">
       <div class="footer-regulatory">
-        <p>© <span data-year></span> <strong>Ing. Hana Korečková, IČO 24082937</strong>, se sídlem č. p. 221, 537 01 Rabštejnská Lhota, působí jako vázaná zástupkyně společnosti eDO finance, a.s. V registru ČNB je zapsána pro oblasti investic, spotřebitelských úvěrů, distribuce pojištění a zajištění a doplňkového penzijního spoření. <a href="https://jerrs.cnb.cz/apljerrsdad/JERRS.WEB07.INTRO_PAGE?p_lang=cz" target="_blank" rel="noopener noreferrer">Ověřit v registru ČNB</a>.</p>
+        <p>© <span data-year></span> <strong>Ing. Hana Korečková, IČO 24082937</strong>, se sídlem č. p. 221, 537 01 Rabštejnská Lhota, působí jako vázaná zástupkyně společnosti eDO finance, a.s. V registru investičních služeb je zapsána pro oblast investičních služeb, distribuci pojištění a zajištění. <a href="https://jerrs.cnb.cz/apl/jerrsdad/JERRS.WEB07.INTRO_PAGE?p_lang=cz" target="_blank" rel="noopener noreferrer">Ověřit v registru</a>.</p>
       </div>
     </div>
   </footer>
