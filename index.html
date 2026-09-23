@@ -86,7 +86,7 @@
     .menu-toggle { display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); }
     .menu-toggle span:not(.sr-only) { display: block; width: 19px; height: 1px; margin: 5px auto; background: var(--forest-900); transition: transform .2s, opacity .2s; }
 
-    .button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; border: 1px solid transparent; padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 750; letter-spacing: .01em; transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; }
+    .button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; border: 1px solid transparent; padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 700; letter-spacing: .01em; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
     .button:hover, .button:focus-visible { transform: translateY(-2px); }
     .button-small { min-height: 44px; padding: 10px 17px; font-size: 13px; }
     .button-primary { background: var(--forest-900); color: white; box-shadow: 0 10px 24px rgba(29,81,69,.16); }
@@ -114,10 +114,10 @@
     .portrait-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,59,50,.16), transparent 34%); }
     .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
     .hero-visual::before { content: ""; position: absolute; inset: -12px 4px 12px 14px; border: 1px solid rgba(183,149,80,.46); border-radius: 32px; }
-    .hero-card { position: absolute; left: -26px; bottom: 54px; z-index: 4; width: 265px; padding: 18px 21px; border-radius: 12px; background: rgba(29,81,69,.94); box-shadow: 0 16px 34px rgba(18,59,50,.2); }
+    .hero-card { position: absolute; left: -26px; bottom: 54px; z-index: 4; width: 265px; padding: 18px 21px; border-radius: 12px; background: rgba(29,81,69,.94); box-shadow: 0 16px 34px rgba(18,59,50,.22); }
     .hero-card p { margin: 0; color: rgba(255,255,255,.78); font-size: 14px; line-height: 1.55; }
     .hero-card strong { color: white; }
-    .hero-topics { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--forest-800); font-size: 11px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-topics { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--forest-800); font-size: 12px; font-weight: 700; }
     .hero-topics i { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-400); }
 
     .statement { background: var(--paper); }
@@ -133,10 +133,10 @@
 
     .services { background: var(--sage-50); }
     .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; margin-bottom: 60px; }
-    .section-heading h2, .about-copy h2, .about-intro h2, .entrepreneurs-copy h2, .contact-copy h2, .expertise h2 { margin-bottom: 0; font-family: var(--sans); font-size: clamp(38px, 4.4vw, 60px); font-weight: 720; line-height: 1.05; letter-spacing: -.04em; }
+    .section-heading h2, .about-copy h2, .about-intro h2, .entrepreneurs-copy h2, .contact-copy h2, .expertise h2 { margin-bottom: 0; font-family: var(--sans); font-size: clamp(38px, 4.4vw, 60px); font-weight: 720; line-height: 1.06; letter-spacing: -.04em; }
     .section-heading > p { margin: 0 0 6px; color: var(--muted); font-size: 17px; }
     .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .service-card { min-height: 410px; padding: 38px 38px 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 12px 30px rgba(18,59,50,.05); }
+    .service-card { min-height: 410px; padding: 38px 38px 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); display: flex; flex-direction: column; align-items: flex-start; }
     .service-card-accent { background: var(--sage-200); }
     .service-number { margin: 0 0 36px; color: var(--forest-700); font-family: var(--sans); font-size: 34px; font-weight: 720; line-height: 1; }
     .service-card-accent .service-number { color: var(--forest-800); }
@@ -154,17 +154,17 @@
     .one-plan-photo::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(29,81,69,.12); border-radius: inherit; }
     .one-plan-copy h2 { margin-bottom: 34px; font-family: var(--sans); font-size: clamp(43px, 5vw, 68px); font-weight: 720; line-height: 1.02; letter-spacing: -.045em; }
     .one-plan-copy > p:not(.eyebrow) { max-width: 620px; color: var(--muted); font-size: 18px; }
-    .one-plan-copy blockquote { margin: 42px 0 0; padding: 22px 0 22px 28px; border-left: 3px solid var(--gold-400); color: var(--forest-800); font-family: var(--sans); font-size: clamp(23px, 2.5vw, 32px); font-weight: 650; line-height: 1.35; }
+    .one-plan-copy blockquote { margin: 42px 0 0; padding: 22px 0 22px 28px; border-left: 3px solid var(--gold-400); color: var(--forest-800); font-family: var(--sans); font-size: clamp(23px, 2.5vw, 34px); font-weight: 650; line-height: 1.3; letter-spacing: -.02em; }
 
     .process { background: var(--paper); }
     .process-heading { align-items: center; }
-    .section-heading > .process-highlight { margin: 0; padding: 18px 20px; border-left: 3px solid var(--forest-700); border-radius: 0 12px 12px 0; background: var(--sage-100); color: var(--forest-900); font-size: 16px; line-height: 1.55; }
+    .section-heading > .process-highlight { margin: 0; padding: 18px 20px; border-left: 3px solid var(--forest-700); border-radius: 0 12px 12px 0; background: var(--sage-100); color: var(--forest-900); }
     .process-highlight strong, .process-highlight span { display: block; }
     .process-highlight strong { margin-bottom: 3px; font-weight: 750; }
     .timeline { position: relative; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
     .timeline::before { content: ""; position: absolute; left: 44px; top: 0; bottom: 0; width: 1px; background: var(--line); }
     .timeline li { position: relative; display: grid; grid-template-columns: 90px 1fr; gap: 44px; padding: 30px 0 30px; border-bottom: 1px solid var(--line); }
-    .timeline-number { position: relative; z-index: 2; width: 40px; height: 40px; margin-left: 24px; border: 1px solid var(--forest-700); border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--forest-800); font-family: var(--sans); font-size: 13px; font-weight: 750; }
+    .timeline-number { position: relative; z-index: 2; width: 40px; height: 40px; margin-left: 24px; border: 1px solid var(--forest-700); border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--forest-800); font-size: 12px; font-weight: 800; }
     .timeline li > div { display: grid; grid-template-columns: .58fr 1fr; gap: 55px; align-items: baseline; }
     .timeline h3 { margin: 0; font-family: var(--sans); font-size: 25px; font-weight: 680; letter-spacing: -.02em; }
     .timeline p { max-width: 650px; margin: 0; color: var(--muted); }
@@ -226,7 +226,7 @@
     .contact-form label { display: block; margin-bottom: 18px; }
     .contact-form label > span { display: block; margin-bottom: 6px; color: var(--forest-800); font-size: 12px; font-weight: 750; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid rgba(13,58,49,.18); border-radius: 8px; outline: 0; background: var(--sage-50); padding: 12px 13px; color: var(--ink); transition: border .2s ease, box-shadow .2s ease; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid rgba(13,58,49,.18); border-radius: 8px; outline: 0; background: var(--sage-50); padding: 12px 13px; color: var(--ink); }
     .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--forest-700); box-shadow: 0 0 0 3px rgba(63,123,108,.13); }
     .contact-form textarea { resize: vertical; }
     .form-submit { width: 100%; border: 0; }
@@ -414,7 +414,7 @@
         <div class="statement-copy reveal">
           <h2>Nejde o to mít více<br>finančních produktů.</h2>
           <p class="statement-accent">Jde o to vědět, proč je máte.</p>
-          <p>Možná už nějaké pojištění, investice nebo spoření máte. Možná teprve začínáte. V obou případech by mělo být jasné, jakou roli jednotlivé části vašich financí plní ve vašem životě.</p>
+          <p>Možná už nějaké pojištění, investice nebo spoření máte. Možná teprve začínáte. V obou případech by mělo být jasné, jakou roli jednotlivé části vašich financí hrají ve vašem životě a jak spolu souvisejí.</p>
         </div>
         <div class="roles" aria-label="Čtyři role finančního plánu">
           <article><span>01</span><strong>Co vás chrání.</strong></article>
@@ -458,7 +458,7 @@
             <div class="service-number">03</div>
             <p class="service-kicker">Investice</p>
             <h3>Nejdříve cíl.<br>Potom investice.</h3>
-            <p>Strategie vychází z vašeho cíle, času, zkušeností a rizika, které jste schopni přijmout. Může zahrnovat pravidelné i jednorázové investice do podílových fondů a u klientů i další investiční nástroje.</p>
+            <p>Strategie vychází z vašeho cíle, času, zkušeností a rizika, které jste schopni přijmout. Může zahrnovat pravidelné i jednorázové investice do podílových fondů a u klientů s vyšší mírou zkušeností i jiné vhodné nástroje.</p>
             <p class="service-list">pravidelné investice · jednorázové investice · podílové fondy · fondy kvalifikovaných investorů</p>
             <a href="#kontakt">Chci řešit investice <span aria-hidden="true">↗</span></a>
           </article>
@@ -531,7 +531,7 @@
         <div class="entrepreneurs-copy reveal">
           <p class="eyebrow eyebrow-dark">Pro drobné podnikatele a OSVČ</p>
           <h2>Osobní a podnikatelské finance se často potkávají.</h2>
-          <p>Podnikání vyžaduje komplexní pohled na provoz, majetek, odpovědnost, financování dalšího rozvoje i přípravu na budoucnost. U OSVČ je navíc důležité vnímat podnikatelské finance jako součást osobních financí, aby byly důsledn�� i v době mezi příjmy.</p>
+          <p>Podnikání vyžaduje komplexní pohled na provoz, majetek, odpovědnost, financování dalšího rozvoje i přípravu na budoucnost. U OSVČ je navíc důležité vnímat podnikatelské finance v souvislostech s vaším osobním životem.</p>
           <a class="button button-dark" href="#kontakt">Probrat moje podnikání</a>
         </div>
         <div class="entrepreneurs-points reveal" aria-label="Oblasti financí podnikatelů">
@@ -559,7 +559,7 @@
           <div class="edo-support">
             <p class="edo-label">Odborné zázemí</p>
             <h3>Spolupracuji se společností eDO finance</h3>
-            <p>Působím jako vázaná zástupkyně společnosti <strong>eDO finance, a.s.</strong> Díky tomuto zázemí mám přístup k průběžnému vzdělávání, metodické a odborné podpoře a k bezpečnému a transparentnímu rámci práce s klienty.</p>
+            <p>Působím jako vázaná zástupkyně společnosti <strong>eDO finance, a.s.</strong> Díky tomuto zázemí mám přístup k průběžnému vzdělávání, metodické a odborné podpoře a mohu pracovat v souladu s nároky na kvalitu a etiku finančního poradenství.</p>
             <p>S eDO sdílím důraz na odbornost, férovost, transparentnost, srozumitelnou komunikaci a dlouhodobou péči o klienty.</p>
             <a href="https://www.edogroup.cz/cz/kdo-jsme" target="_blank" rel="noopener noreferrer">Více o eDO finance <span aria-hidden="true">↗</span></a>
           </div>
@@ -604,7 +604,7 @@
           </div>
         </div>
 
-        <form class="contact-form reveal" data-contact-form>
+        <form class="contact-form reveal" data-contact-form action="https://formspree.io/f/mgavylpe" method="POST">
           <div class="form-intro">
             <span>Úvodní konzultace</span>
             <strong>Nezávazně a bez tlaku</strong>
@@ -649,7 +649,7 @@
   <footer class="site-footer">
     <div class="shell footer-legal">
       <div class="footer-regulatory">
-        <p>© <span data-year></span> <strong>Ing. Hana Korečková, IČO 24082937</strong>, se sídlem č. p. 221, 537 01 Rabštejnská Lhota, působí jako vázaná zástupkyně společnosti eDO finance, a.s. V registru investičních služeb je zapsána pro oblast investičních služeb, distribuci pojištění a zajištění. <a href="https://jerrs.cnb.cz/apl/jerrsdad/JERRS.WEB07.INTRO_PAGE?p_lang=cz" target="_blank" rel="noopener noreferrer">Ověřit v registru</a>.</p>
+        <p>© <span data-year></span> <strong>Ing. Hana Korečková, IČO 24082937</strong>, se sídlem č. p. 221, 537 01 Rabštejnská Lhota, působí jako vázaná zástupkyně společnosti eDO finance, a.s.</p>
       </div>
     </div>
   </footer>
@@ -691,21 +691,46 @@
 
     document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-    form?.addEventListener('submit', (event) => {
+    form?.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const data = new FormData(form);
-      const subject = `Žádost o konzultaci – ${data.get('topic') || 'obecný dotaz'}`;
-      const body = [
-        `Jméno: ${data.get('name') || ''}`,
-        `E-mail: ${data.get('email') || ''}`,
-        `Telefon: ${data.get('phone') || ''}`,
-        `Téma: ${data.get('topic') || ''}`,
-        '',
-        data.get('message') || '',
-      ].join('\n');
 
-      formStatus.textContent = 'Otevřela se vaše e-mailová aplikace. Zprávu v ní ještě potvrďte a odešlete.';
-      window.location.href = `mailto:hana.koreckova@edofinance.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Odesílám...';
+      }
+
+      formStatus.textContent = 'Odesílám vaši zprávu...';
+      formStatus.style.color = 'var(--forest-700)';
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          const result = await response.json().catch(() => ({}));
+          throw new Error(result?.error || 'Při odesílání se něco nepovedlo. Zkuste to prosím znovu.');
+        }
+
+        form.reset();
+        formStatus.textContent = 'Děkujeme! Vaše žádost byla úspěšně odeslána.';
+        formStatus.style.color = 'var(--forest-700)';
+      } catch (error) {
+        formStatus.textContent = error.message || 'Při odesílání se něco nepovedlo. Zkuste to prosím znovu.';
+        formStatus.style.color = '#b42318';
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
     });
 
     document.querySelector('[data-year]').textContent = new Date().getFullYear();
