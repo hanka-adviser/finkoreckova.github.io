@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hanka-adviser.github.io/finkoreckova.github.io/sitemap.xml
+Sitemap: https://finkoreckova.cz/sitemap.xml
