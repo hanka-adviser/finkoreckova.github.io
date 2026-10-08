@@ -233,6 +233,75 @@
     .gdpr-field input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--forest-900); }
     .gdpr-field label { margin: 0; font-size: 13px; color: var(--forest-800); }
     .gdpr-field a { color: var(--forest-900); text-decoration: underline; text-underline-offset: 2px; }
+    .gdpr-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--forest-900);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pdf-modal[hidden] {
+  display: none;
+}
+
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.pdf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 24, 20, 0.62);
+}
+
+.pdf-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 92vw);
+  height: min(88vh, 900px);
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.pdf-modal__dialog h3 {
+  margin: 0;
+  padding: 18px 52px 14px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--forest-900);
+  font-size: 20px;
+}
+
+.pdf-modal__dialog iframe {
+  width: 100%;
+  height: calc(100% - 66px);
+  border: 0;
+  background: white;
+}
+
+.pdf-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(18, 59, 50, 0.08);
+  color: var(--forest-900);
+  font-size: 24px;
+  cursor: pointer;
+}
     .form-submit { width: 100%; border: 0; }
     .form-status { min-height: 20px; margin: 12px 0 0; color: var(--forest-700); font-size: 13px; font-weight: 700; }
 
@@ -644,10 +713,13 @@
             <textarea name="message" rows="4" placeholder="Napište mi stručně, s čím vám mohu pomoci, a připojte preferovaný termín a místo schůzky."></textarea>
           </label>
 
-          <div class="gdpr-field">
-            <input type="checkbox" id="gdpr-consent" name="gdpr_consent" required>
-            <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů GDPR (<a href="GDPR.pdf" target="_blank" rel="noopener noreferrer">více zde</a>)</label>
-          </div>
+        <div class="gdpr-field">
+  <input type="checkbox" id="gdpr-consent" name="gdpr_consent" required>
+  <label for="gdpr-consent">
+    Souhlasím se zpracováním osobních údajů GDPR
+    (<button type="button" class="gdpr-link" data-open-pdf>více zde</button>)
+  </label>
+</div>
           <button class="button button-primary form-submit" type="submit">Odeslat žádost o konzultaci</button>
           <p class="form-status" role="status" aria-live="polite" data-form-status></p>
         </form>
@@ -749,9 +821,42 @@
           submitButton.textContent = originalButtonText;
         }
       }
+      const pdfModal = document.getElementById('pdfModal');
+const openPdfButton = document.querySelector('[data-open-pdf]');
+const closePdfButtons = document.querySelectorAll('[data-close-pdf]');
+
+const openPdf = () => {
+  pdfModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+};
+
+const closePdf = () => {
+  pdfModal.hidden = true;
+  document.body.style.overflow = '';
+};
+
+openPdfButton?.addEventListener('click', openPdf);
+
+closePdfButtons.forEach((button) => {
+  button.addEventListener('click', closePdf);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !pdfModal.hidden) {
+    closePdf();
+  }
+});
     });
 
     document.querySelector('[data-year]').textContent = new Date().getFullYear();
   </script>
+  <div class="pdf-modal" id="pdfModal" hidden>
+  <div class="pdf-modal__backdrop" data-close-pdf></div>
+  <div class="pdf-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+    <button type="button" class="pdf-modal__close" data-close-pdf aria-label="Zavřít okno">×</button>
+    <h3 id="pdfTitle">GDPR – zpracování osobních údajů</h3>
+    <iframe src="GDPR.pdf#view=FitH" title="GDPR dokument" loading="lazy"></iframe>
+  </div>
+  </div>
 </body>
 </html>
